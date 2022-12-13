@@ -2,8 +2,6 @@
 // Address all the TODOs to make the tests pass!
 // Execute `rustlings hint structs1` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
-
 struct ColorClassicStruct {
     red: i32,
     green: i32,
@@ -13,7 +11,7 @@ struct ColorClassicStruct {
 struct ColorTupleStruct(i32,i32,i32);
 
 #[derive(Debug)]
-struct UnitLikeStruct(str);
+struct UnitLikeStruct;
 
 #[cfg(test)]
 mod tests {
@@ -21,7 +19,7 @@ mod tests {
 
     #[test]
     fn classic_c_structs() {
-        let green = ColorClassicStruct(0, 255, 0);
+        let green = ColorClassicStruct{ red: 0, green: 255, blue: 0 };
 
         assert_eq!(green.red, 0);
         assert_eq!(green.green, 255);
@@ -39,7 +37,7 @@ mod tests {
 
     #[test]
     fn unit_structs() {
-        let unit_like_struct:UnitLikeStruct = "UnitLikeStructs";
+        let unit_like_struct = UnitLikeStruct;
         let message = format!("{:?}s are fun!", unit_like_struct);
 
         assert_eq!(message, "UnitLikeStructs are fun!");
